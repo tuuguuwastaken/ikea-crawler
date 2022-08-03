@@ -22,7 +22,7 @@ def make_random():
     data= []
     while(i < 13):
         
-        names = '1'
+        names = str(i)
         i+=1
         
         date = {
