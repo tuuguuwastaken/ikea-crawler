@@ -17,14 +17,14 @@ def load_category (filename):
 
 def get_info(browser, sub, url):
     products_info = []
-    browser.get(url + "?page=200")
-    time.sleep(10)
+    browser.get(url)
+    time.sleep(3)
     cards = browser.find_elements(By.CLASS_NAME,'product-overview-wrapper' or 'withprice-content ivu-col')
     for card in cards:
         product_name = card.find_element(By.CLASS_NAME, "withprice-title").text
-        product_desc = card.find_element(By.CLASS_NAME, 'withprice-commit').text
-        product_price = card.find_element(By.CLASS_NAME,'withprice-price').text
-        print(product_name, product_desc ,product_price)
+        # product_desc = card.find_element(By.CLASS_NAME, 'withprice-commit').text
+        # product_price = card.find_element(By.CLASS_NAME,'withprice-price').text
+        # print(product_name, product_desc ,product_price)
 if __name__ == "__main__":
     print('starting now')
     path_driver = 'chromedriver.exe'
@@ -34,5 +34,6 @@ if __name__ == "__main__":
     i= 1;
     for sub_category in info:
         print(f" checking and submitting {sub_category[0]} ({i}/{len(info)})")
-        get_info(driver, sub_category[0], sub_category[1])
+        get_info(driver, str(sub_category[0]),str(sub_category[1]))
         i+=1
+    driver.close();

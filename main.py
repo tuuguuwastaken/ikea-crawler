@@ -45,7 +45,10 @@ def get_info_from_url(browser, sub_category, url):
                 'price':product_price,
             }]
         }
-        product_info.append(prod)
+       
+        products_info.append(prod)
+        
+    
     return products_info
 
 
@@ -59,11 +62,13 @@ if __name__ == "__main__":
     for sub_category in info:
         print(f" checking and submitting {sub_category[0]} ({i}/{len(info)})")
         product_info = get_info_from_url(driver, sub_category[0], sub_category[1])
-        print(sub_category[0]+ ' ' + sub_category[1]) 
+        print(sub_category[0]+ ' ' + sub_category[1])
+        product_info.append(product_info)
         i+=1
+    with open(f'{sub_category[0]} {i}.json', 'w') as outfile:
+        json.dump(product_info, outfile)
+    
     # print(sub_category)
-    with open('data.json', 'w') as outfile:
-            json.dump(product_info, outfile)
     driver.close()
 
 
