@@ -7,7 +7,7 @@ from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from openpyxl import Workbook,load_workbook
-
+import os
 import json
 
 
@@ -21,35 +21,47 @@ def load_category (filename):
 
 
 def get_info_from_url(browser, sub_category, url):
-
+    print(sub_category)
     products_info = []
     browser.get(url + '?page=200')
     time.sleep(10)
-    cards = browser.find_elements(By.CLASS_NAME,'product-overview-wrapper' or 'withprice-content ivu-col')
+    cards = browser.find_elements(By.CLASS_NAME,'per-product-link-wrapper')
     for card in cards :
         product_name = card.find_element(By.CLASS_NAME, "withprice-title").text
         product_desc = card.find_element(By.CLASS_NAME, 'withprice-commit').text
         product_price = card.find_element(By.CLASS_NAME,'withprice-price').text
         print(product_name, product_desc ,product_price)
-        # product_url = card.find_element(By.TAG_NAME,"a").get_attribute('href')
-        # product_code = product_url.split("-")[-1].strip("s/")
-        products_images = [img_tag.get_attribute('src') for img_tag in card.find_elements(By.TAG_NAME, "img")]
-        products_info = [sub_category, product_name,
-                        product_desc, product_price,]
+        product_url = card.get_attribute('href')
+        product_code = product_url.split("-")[-1].strip("s/")
+        # browser.get(product_url)
+        # time.sleep(3)
+        # browser.find_element(By.XPATH,'/html/body/div[1]/div/div/div[2]/div[1]/div[2]/div[2]/div[1]/section[2]/div/div[2]/div[1]/span').click()
+        # all_spans = driver.find_elements(By.CLASS_NAME, 'item-detail-list')
+        # for span in all_spans:
+        #     print(span.text)
+        # print(package_info)
+        # products_images = [img_tag.get_attribute('src') for img_tag in card.find_elements(By.TAG_NAME, "img")]
+        # # products_info = [sub_category, product_name,
+        #                 product_desc, product_price,]
         # products_info += products_images
         # products_info.append(products_images)
+        title = browser.title
+        title = title.replace(" - IKEA",'')
         prod = {
             'product info': [{
                 'name': product_name,
                 'desc': product_desc,
                 'price':product_price,
+                'product url': product_url,
+                'product code': product_code
             }]
         }
        
-        products_info.append(prod)
-        
+        product_info.append(prod)
+        with open(f'JSON/{sub_category}/{title}.json', 'w') as outfile:
+            json.dump(product_info, outfile)
     
-    return products_info
+    return product_info
 
 
 if __name__ == "__main__":
@@ -58,15 +70,26 @@ if __name__ == "__main__":
     info = load_category('ikea-link.xlsx')
     print(info)
     product_info = []
+    cwd = os.getcwd()
+    JSON_PATH = os.path.join(cwd,'JSON')
     i = 1
+    
+    for sub_category in info:
+        Path_for_json = os.path.join(JSON_PATH,str(sub_category[0]))
+        try:
+            os.mkdir(Path_for_json)
+        except:
+            # directory already exists
+            pass
     for sub_category in info:
         print(f" checking and submitting {sub_category[0]} ({i}/{len(info)})")
+        
         product_info = get_info_from_url(driver, sub_category[0], sub_category[1])
         print(sub_category[0]+ ' ' + sub_category[1])
         product_info.append(product_info)
         i+=1
     with open(f'{sub_category[0]} {i}.json', 'w') as outfile:
-        json.dump(product_info, outfile)
+         json.dump(product_info, outfile)
     
     # print(sub_category)
     driver.close()
