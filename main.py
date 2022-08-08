@@ -41,14 +41,15 @@ def get_info_from_url(browser, sub_category, url):
         #     print(span.text)
         # print(package_info)
         # products_images = [img_tag.get_attribute('src') for img_tag in card.find_elements(By.TAG_NAME, "img")]
-        # # products_info = [sub_category, product_name,
-        #                 product_desc, product_price,]
+        # products_info = [sub_category, product_name,
+                        # product_desc, product_price,product_url,product_code]
         # products_info += products_images
         # products_info.append(products_images)
         title = browser.title
         title = title.replace(" - IKEA",'')
         prod = {
-            'product info': [{
+            'sub_category': sub_category,
+                'product_info': [{
                 'name': product_name,
                 'desc': product_desc,
                 'price':product_price,
@@ -63,6 +64,12 @@ def get_info_from_url(browser, sub_category, url):
     
     return product_info
 
+def save_info(info, file_name):
+    wb = Workbook()
+    ws = wb.active
+    for row in info:
+        ws.append(row)
+    wb.save(file_name) 
 
 if __name__ == "__main__":
     path_driver = 'chromedriver.exe'
@@ -88,8 +95,9 @@ if __name__ == "__main__":
         print(sub_category[0]+ ' ' + sub_category[1])
         product_info.append(product_info)
         i+=1
-    with open(f'{sub_category[0]} {i}.json', 'w') as outfile:
-         json.dump(product_info, outfile)
+    # save_info(product_info, "catergory.xlsx")
+    # with open(f'{sub_category[0]} {i}.json', 'w') as outfile:
+    #      json.dump(product_info, outfile)
     
     # print(sub_category)
     driver.close()
