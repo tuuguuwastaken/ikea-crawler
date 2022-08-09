@@ -21,6 +21,7 @@ def load_category (filename):
 
 
 def get_info_from_url(browser, sub_category, url):
+    global title, title_json
     print(sub_category)
     products_info = []
     browser.get(url + '?page=200')
@@ -46,21 +47,20 @@ def get_info_from_url(browser, sub_category, url):
         # products_info += products_images
         # products_info.append(products_images)
         title = browser.title
-        title = title.replace(" - IKEA",'')
+        title_json = title.replace(" - IKEA",'')
         prod = {
             'sub_category': sub_category,
-                'product_info': [{
+            'product_info': [{
                 'name': product_name,
                 'desc': product_desc,
-                'price':product_price,
+                'price': product_price,
                 'product url': product_url,
                 'product code': product_code
             }]
         }
-       
-        product_info.append(prod)
-        with open(f'JSON/{sub_category}/{title}.json', 'w') as outfile:
-            json.dump(product_info, outfile)
+        products_info.append(prod)
+    with open(f'JSON/{sub_category}/{title_json}.json', 'w') as outfile:
+        json.dump(products_info, outfile)
     
     return product_info
 
