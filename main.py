@@ -150,8 +150,9 @@ if __name__ == "__main__":
             pass
     for sub_category in info:
         print(f" checking and submitting {sub_category[0]} ({i}/{len(info)})")
-        driver.get(str(sub_category[1]))
-        product_info = get_info_from_url(driver, sub_category[0])
+        link = sub_category[1]
+        link.url = sub_category[1]
+        product_info = get_info_from_url(driver, link.url)
         print(sub_category[0]+ ' ' + sub_category[1])
         i+=1
         product_info.append(product_info)
