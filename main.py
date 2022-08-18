@@ -108,7 +108,7 @@ if __name__ == "__main__":
     chrome_options = Options()
     chrome_options.add_argument(f'user-data-dir={dir_path}/selenium')
     driver = webdriver.Chrome(executable_path = path_driver, chrome_options=chrome_options)
-    info = load_category('ikea-link.xlsx')
+    info = load_category('ikea-link copy 2.xlsx')
     print(info)
     product_info = []
     cwd = os.getcwd()
