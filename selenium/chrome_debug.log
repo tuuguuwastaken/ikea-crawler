@@ -1,3 +1,0 @@
-[21896:436:0813/222629.586:ERROR:device_event_log_impl.cc(214)] [22:26:29.586] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
-[21896:6936:0813/222726.336:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
-[21896:436:0813/230644.048:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

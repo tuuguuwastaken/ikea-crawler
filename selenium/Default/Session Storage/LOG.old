@@ -1,3 +1,45 @@
-2022/08/13-22:25:53.743 68bc Reusing MANIFEST D:\ikea crawler\selenium\Default\Session Storage/MANIFEST-000001
-2022/08/13-22:25:53.745 68bc Recovering log #67
-2022/08/13-22:25:53.746 68bc Reusing old log D:\ikea crawler\selenium\Default\Session Storage/000067.log 
+2022/08/16-17:47:28.299 4e68 Reusing MANIFEST D:\ikea crawler\selenium\Default\Session Storage/MANIFEST-000001
+2022/08/16-17:47:28.300 4e68 Recovering log #541
+2022/08/16-17:47:28.301 4e68 Reusing old log D:\ikea crawler\selenium\Default\Session Storage/000541.log 
+2022/08/16-17:50:28.723 3044 Level-0 table #544: started
+2022/08/16-17:50:28.816 3044 Level-0 table #544: 22113 bytes OK
+2022/08/16-17:50:28.859 3044 Delete type=0 #541
+2022/08/16-17:50:28.860 3044 Compacting 4@0 + 1@1 files
+2022/08/16-17:50:28.893 3044 Generated table #545@0: 895 keys, 23718 bytes
+2022/08/16-17:50:28.893 3044 Compacted 4@0 + 1@1 files => 23718 bytes
+2022/08/16-17:50:28.924 3044 compacted to: files[ 0 1 1 0 0 0 0 ]
+2022/08/16-17:50:28.925 3044 Delete type=2 #533
+2022/08/16-17:50:28.925 3044 Delete type=2 #535
+2022/08/16-17:50:28.925 3044 Delete type=2 #538
+2022/08/16-17:50:28.925 3044 Delete type=2 #540
+2022/08/16-17:50:28.925 3044 Delete type=2 #544
+2022/08/16-17:51:28.720 2b90 Level-0 table #547: started
+2022/08/16-17:51:28.923 2b90 Level-0 table #547: 16123 bytes OK
+2022/08/16-17:51:29.004 2b90 Delete type=0 #543
+2022/08/16-17:52:28.718 2b90 Level-0 table #549: started
+2022/08/16-17:52:28.854 2b90 Level-0 table #549: 10174 bytes OK
+2022/08/16-17:52:28.948 2b90 Delete type=0 #546
+2022/08/16-17:53:28.721 2b90 Level-0 table #551: started
+2022/08/16-17:53:28.749 2b90 Level-0 table #551: 8908 bytes OK
+2022/08/16-17:53:28.786 2b90 Delete type=0 #548
+2022/08/16-17:54:28.720 3b0 Level-0 table #553: started
+2022/08/16-17:54:28.749 3b0 Level-0 table #553: 16702 bytes OK
+2022/08/16-17:54:28.774 3b0 Delete type=0 #550
+2022/08/16-17:54:28.775 3b0 Compacting 4@0 + 1@1 files
+2022/08/16-17:54:28.818 3b0 Generated table #554@0: 895 keys, 33675 bytes
+2022/08/16-17:54:28.818 3b0 Compacted 4@0 + 1@1 files => 33675 bytes
+2022/08/16-17:54:28.840 3b0 compacted to: files[ 0 1 1 0 0 0 0 ]
+2022/08/16-17:54:28.841 3b0 Delete type=2 #545
+2022/08/16-17:54:28.841 3b0 Delete type=2 #547
+2022/08/16-17:54:28.841 3b0 Delete type=2 #549
+2022/08/16-17:54:28.841 3b0 Delete type=2 #551
+2022/08/16-17:54:28.841 3b0 Delete type=2 #553
+2022/08/16-17:55:28.721 77c Level-0 table #556: started
+2022/08/16-17:55:28.799 77c Level-0 table #556: 16011 bytes OK
+2022/08/16-17:55:28.824 77c Delete type=0 #552
+2022/08/16-17:57:28.730 2cb8 Level-0 table #558: started
+2022/08/16-17:57:28.785 2cb8 Level-0 table #558: 10622 bytes OK
+2022/08/16-17:57:28.809 2cb8 Delete type=0 #555
+2022/08/16-17:59:28.726 193c Level-0 table #560: started
+2022/08/16-17:59:28.798 193c Level-0 table #560: 18697 bytes OK
+2022/08/16-17:59:28.823 193c Delete type=0 #557
