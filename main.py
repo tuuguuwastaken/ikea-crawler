@@ -105,7 +105,7 @@ def save_info(info, file_name):
 if __name__ == "__main__":
     path_driver = 'chromedriver.exe'
     dir_path = os.getcwd()
-    chrome_options = Options()
+    chrome_options = Options()  
     chrome_options.add_argument(f'user-data-dir={dir_path}/selenium')
     driver = webdriver.Chrome(executable_path = path_driver, chrome_options=chrome_options)
     info = load_category('full-list.xlsx')
